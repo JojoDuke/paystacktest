@@ -3,6 +3,8 @@ const cors = require('cors');
 const axios = require('axios');
 const app = express();
 
+const PORT = 4000;
+
 app.use(express.json());
 app.use(cors());
 
@@ -33,7 +35,7 @@ const params = JSON.stringify({
   }
 
   
-  app.get("/perform", async (req, res) => {
+  app.get("/", async (req, res) => {
     axios(options)
       .then(response => {
         res.send((response.data));
@@ -43,6 +45,6 @@ const params = JSON.stringify({
       })
   });
 
-  app.listen(process.env.PORT || 4000, '0.0.0.0', () => {
-    console.log(`Server is running on port 4000`);
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
   })
