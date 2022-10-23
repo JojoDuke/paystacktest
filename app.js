@@ -41,7 +41,7 @@ const params = JSON.stringify({
         res.send((response.data));
       })
       .catch(error => {
-        res.send(error);
+        res.send(error)
       })
   });
 
